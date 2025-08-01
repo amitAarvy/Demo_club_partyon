@@ -1,0 +1,8 @@
+export PATH="/usr/share/rvm/gems/ruby-2.5.9@global/bin:/usr/share/rvm/rubies/ruby-2.5.9/bin:$PATH"
+export GEM_HOME='/usr/share/rvm/gems/ruby-2.5.9@global'
+export GEM_PATH='/usr/share/rvm/gems/ruby-2.5.9@global'
+export MY_RUBY_HOME='/usr/share/rvm/rubies/ruby-2.5.9'
+export IRBRC='/usr/share/rvm/rubies/ruby-2.5.9/.irbrc'
+unset MAGLEV_HOME
+unset RBXOPT
+export RUBY_VERSION='ruby-2.5.9'

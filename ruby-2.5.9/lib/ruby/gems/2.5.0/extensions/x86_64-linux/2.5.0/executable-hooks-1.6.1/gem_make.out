@@ -1,0 +1,17 @@
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/executable-hooks-1.6.1/ext/wrapper_installer
+/usr/share/rvm/rubies/ruby-2.5.9/bin/ruby -I /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/site_ruby/2.5.0 -r ./siteconf20220518-14719-jf5a9q.rb extconf.rb
+bundler 1.17.3
+rake 12.3.3
+rdoc 6.0.1.1
+
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/executable-hooks-1.6.1/ext/wrapper_installer
+make "DESTDIR=" clean
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/executable-hooks-1.6.1/ext/wrapper_installer
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/executable-hooks-1.6.1/ext/wrapper_installer
+make "DESTDIR=" install
+make: Nothing to be done for 'install'.

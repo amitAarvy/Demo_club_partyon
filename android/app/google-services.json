@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "835379344984",
+    "project_id": "partyon-artist-demo",
+    "storage_bucket": "partyon-artist-demo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835379344984:android:ca2c9843fb950070eb7c2d",
+        "android_client_info": {
+          "package_name": "hashtag.partyonDemo.partner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835379344984-c9odga949ans597qsdocnmonn160mtpf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hashtag.partyonDemo.partner",
+            "certificate_hash": "5c25ffa47c381f6ce3b6aa7dfe15e522a27a9247"
+          }
+        },
+        {
+          "client_id": "835379344984-1rrcu9k6h2pl9mbr8k4vdm68girgsek3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmMaAorHzDKkYbOJOtli3Tvz4c877NRRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835379344984-1rrcu9k6h2pl9mbr8k4vdm68girgsek3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,14 @@
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/gem-wrappers-1.4.0/ext/wrapper_generator
+/usr/share/rvm/rubies/ruby-2.5.9/bin/ruby -I /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/site_ruby/2.5.0 -r ./siteconf20220518-14673-1qdr3zm.rb extconf.rb
+
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/gem-wrappers-1.4.0/ext/wrapper_generator
+make "DESTDIR=" clean
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/gem-wrappers-1.4.0/ext/wrapper_generator
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /usr/share/rvm/rubies/ruby-2.5.9/lib/ruby/gems/2.5.0/gems/gem-wrappers-1.4.0/ext/wrapper_generator
+make "DESTDIR=" install
+make: Nothing to be done for 'install'.

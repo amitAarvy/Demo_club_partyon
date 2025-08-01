@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CADisableMinimumFrameDurationOnPhone</key>
+		<true/>
+		<key>CFBundleDevelopmentRegion</key>
+		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>CFBundleDisplayName</key>
+		<string>PartyOn Club Partner</string>
+		<key>CFBundleExecutable</key>
+		<string>$(EXECUTABLE_NAME)</string>
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<true/>
+			<key>NSAllowsLocalNetworking</key>
+			<true/>
+		</dict>
+		<key>CFBundleIdentifier</key>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>club</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>$(FLUTTER_BUILD_NAME)</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>This app needs access to your photo library to allow you to upload images and videos for event promotion, menu creation, booking visuals, and other in-app features. This access enhances engagement by visually representing events and promotions. All media will be used solely within the app for these purposes, with no data stored or shared externally.</string>
+		<key>NSCameraUsageDescription</key>
+		<string>For changing profile pic.</string>
+		<key>CFBundleVersion</key>
+		<string>$(FLUTTER_BUILD_NUMBER)</string>
+		<key>LSRequiresIPhoneOS</key>
+		<true/>
+		<key>CFBundleURLTypes</key>
+        <array>
+        	<dict>
+        		<key>CFBundleTypeRole</key>
+        		<string>Editor</string>
+        		<key>CFBundleURLSchemes</key>
+        		<array>
+        			<string>com.googleusercontent.apps.774845460870-8hlfqt9avh5lh7nsr35oehj3lso8b25t</string>
+        		</array>
+        	</dict>
+        </array>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>Needed to access location</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Needed to access location</string>
+		<key>UILaunchStoryboardName</key>
+		<string>LaunchScreen</string>
+		<key>UIMainStoryboardFile</key>
+		<string>Main</string>
+		<key>UIStatusBarHidden</key>
+		<false/>
+		<key>UISupportedInterfaceOrientations</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+		</array>
+		<key>UISupportedInterfaceOrientations~ipad</key>
+		<array>
+			<string>UIInterfaceOrientationLandscapeLeft</string>
+			<string>UIInterfaceOrientationLandscapeRight</string>
+			<string>UIInterfaceOrientationPortrait</string>
+		</array>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<false/>
+		<key>UIApplicationSupportsIndirectInputEvents</key>
+		<true/>
+	</dict>
+</plist>
