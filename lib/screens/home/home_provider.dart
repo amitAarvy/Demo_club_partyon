@@ -21,6 +21,7 @@ class HomeController extends GetxController {
   var avgCost = "Loading".obs;
   var locality = "Loading".obs;
   var activeStatus = false.obs;
+  var gst = "Loading".obs;
 
   updateClub(String clubID) {
     this.clubID.value = clubID;
@@ -32,6 +33,9 @@ class HomeController extends GetxController {
 
   updateCoveImage(String coverImage) {
     this.coverImage.value = coverImage;
+  }
+  updateGstImage(String gst) {
+    this.gst.value = gst;
   }
 
   updateClubName(String clubName) {

@@ -58,6 +58,7 @@ Future getCurrentClub() async {
       if (value.exists) {
         homeController.updateClubName((value.data()?["clubName"]).toString());
         homeController.updateProfile((value.data()?["logo"]).toString());
+        homeController.updateGstImage((value.data()?["gst"]).toString());
         homeController
             .updateCoveImage((value.data()?["coverImage"]).toString());
         homeController.updateCity((value.data()?["city"]).toString());
@@ -413,6 +414,20 @@ Widget drawer({bool isOrganiser = false,bool isInf = false,required BuildContext
                     if (!isOrganiser)
                       Column(
                         children: [
+
+                          ListTile(
+                            leading: const Icon(
+                              FontAwesomeIcons.images,
+                              color: Colors.white,
+                            ),
+                            title: Text(
+                              "Images Upload",
+                              style: GoogleFonts.montserrat(
+                                  color: Colors.white, fontWeight: FontWeight.bold),
+                            ),
+                            onTap: () => Get.to(const ImageUpload()),
+                          ),
+
                           ListTile(
                             leading: const Icon(
                               Icons.upload_file,
@@ -456,18 +471,7 @@ Widget drawer({bool isOrganiser = false,bool isInf = false,required BuildContext
                         ],
                       ),
 
-                    // ListTile(
-                    //   leading: const Icon(
-                    //     FontAwesomeIcons.images,
-                    //     color: Colors.white,
-                    //   ),
-                    //   title: Text(
-                    //     "Images Upload",
-                    //     style: GoogleFonts.montserrat(
-                    //         color: Colors.white, fontWeight: FontWeight.bold),
-                    //   ),
-                    //   onTap: () => Get.to(const ImageUpload()),
-                    // ),
+
 
                     // ListTile(
                     //   leading:  const Icon(

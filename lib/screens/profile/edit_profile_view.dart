@@ -414,6 +414,30 @@ class _EditProfileState extends State<EditProfile> {
                                             isNum: true),
                                       ],
                                     ),
+                                    Row(
+                                      children: [
+                                        info("Gst",
+                                            homeController.gst.value),
+                                        SizedBox(
+                                          width: 20.w,
+                                        ),
+                                        editIcon(context, "gst", 20,
+                                            homeController.gst.value,
+                                            isNum: false),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        info("Description",
+                                            homeController.description.value),
+                                        SizedBox(
+                                          width: 20.w,
+                                        ),
+                                        editIcon(context, "description", 20,
+                                            homeController.description.value,
+                                            isNum: false),
+                                      ],
+                                    ),
                                     SizedBox(
                                       height: 20.h,
                                     ),

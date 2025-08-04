@@ -262,128 +262,128 @@ class _AddressOrganiserState extends State<AddressOrganiser> with WidgetsBinding
                   ),
                 ),
               ).marginOnly(left: 30.w, right: 30.w, bottom: 30.h, top: 20.h),
-              dialogOther == true
-                  ? ElevatedButton(
-                onPressed: () {
-                  showDialog<void>(
-                    context: context,
-                    // false = user must tap button, true = tap outside dialog
-                    builder: (BuildContext dialogContext) {
-                      return AlertDialog(
-                          title: const Text("Enter City name"),
-                          content: SizedBox(
-                            height: 300.0,
-                            width: 300.0,
-                            child: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: <Widget>[
-                                  TextField(
-                                    controller: _otherCity,
-                                    decoration: const InputDecoration(
-                                        labelText: "Enter city name"),
-                                  ).marginSymmetric(horizontal: 50.w),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      if (_otherCity.text.isEmpty) {
-                                        Fluttertoast.showToast(
-                                            msg:
-                                            "Enter a valid city name");
-                                      } else {
-                                        Navigator.of(context).pop();
-                                      }
-                                    },
-                                    style: ButtonStyle(
-                                        backgroundColor:
-                                        MaterialStateProperty
-                                            .resolveWith((states) =>
-                                        Colors.green)),
-                                    child: const Text("Continue"),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        dropValueCity = "Select City";
-                                        dialogOther = false;
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                    style: ButtonStyle(
-                                        backgroundColor:
-                                        MaterialStateProperty
-                                            .resolveWith((states) =>
-                                        Colors.red)),
-                                    child: const Text("Cancel"),
-                                  ),
-                                ]),
-                          ));
-                    },
-                  );
-                },
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith(
-                            (states) => Colors.black)),
-                child: const Text("Choose Other City"),
-              )
-                  : Container(),
-              dropValueCity == "New Delhi"
-                  ? Container(
-                height: 130.h,
-                width: Get.width - 100.w,
-                decoration:
-                BoxDecoration(border: Border.all(color: Colors.grey)),
-                child: Center(
-                  child: DropdownButton<String>(
-                    items: itemsND
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String? val) {
-                      setState(() {
-                        dropND = val!;
-                      });
-                    },
-                    value: dropND,
-                    style: const TextStyle(color: Colors.white70),
-                    dropdownColor: Colors.black,
-                  ),
-                ),
-              ).marginOnly(
-                  left: 30.w, right: 30.w, bottom: 30.h, top: 20.h)
-                  : Container(),
-              dropValueCity == "Gurugram"
-                  ? Container(
-                height: 130.h,
-                width: Get.width - 100.w,
-                decoration:
-                BoxDecoration(border: Border.all(color: Colors.grey)),
-                child: Center(
-                  child: DropdownButton<String>(
-                    items: itemsGM
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String? val) {
-                      setState(() {
-                        dropGM = val!;
-                      });
-                    },
-                    value: dropGM,
-                    style: const TextStyle(color: Colors.white70),
-                    dropdownColor: Colors.black,
-                  ),
-                ),
-              ).marginOnly(
-                  left: 30.w, right: 30.w, bottom: 30.h, top: 20.h)
-                  : Container(),
+              // dialogOther == true
+              //     ? ElevatedButton(
+              //   onPressed: () {
+              //     showDialog<void>(
+              //       context: context,
+              //       // false = user must tap button, true = tap outside dialog
+              //       builder: (BuildContext dialogContext) {
+              //         return AlertDialog(
+              //             title: const Text("Enter City name"),
+              //             content: SizedBox(
+              //               height: 300.0,
+              //               width: 300.0,
+              //               child: Column(
+              //                   mainAxisAlignment:
+              //                   MainAxisAlignment.center,
+              //                   children: <Widget>[
+              //                     TextField(
+              //                       controller: _otherCity,
+              //                       decoration: const InputDecoration(
+              //                           labelText: "Enter city name"),
+              //                     ).marginSymmetric(horizontal: 50.w),
+              //                     ElevatedButton(
+              //                       onPressed: () {
+              //                         if (_otherCity.text.isEmpty) {
+              //                           Fluttertoast.showToast(
+              //                               msg:
+              //                               "Enter a valid city name");
+              //                         } else {
+              //                           Navigator.of(context).pop();
+              //                         }
+              //                       },
+              //                       style: ButtonStyle(
+              //                           backgroundColor:
+              //                           MaterialStateProperty
+              //                               .resolveWith((states) =>
+              //                           Colors.green)),
+              //                       child: const Text("Continue"),
+              //                     ),
+              //                     ElevatedButton(
+              //                       onPressed: () {
+              //                         setState(() {
+              //                           dropValueCity = "Select City";
+              //                           dialogOther = false;
+              //                         });
+              //                         Navigator.of(context).pop();
+              //                       },
+              //                       style: ButtonStyle(
+              //                           backgroundColor:
+              //                           MaterialStateProperty
+              //                               .resolveWith((states) =>
+              //                           Colors.red)),
+              //                       child: const Text("Cancel"),
+              //                     ),
+              //                   ]),
+              //             ));
+              //       },
+              //     );
+              //   },
+              //   style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.resolveWith(
+              //               (states) => Colors.black)),
+              //   child: const Text("Choose Other City"),
+              // )
+              //     : Container(),
+              // dropValueCity == "New Delhi"
+              //     ? Container(
+              //   height: 130.h,
+              //   width: Get.width - 100.w,
+              //   decoration:
+              //   BoxDecoration(border: Border.all(color: Colors.grey)),
+              //   child: Center(
+              //     child: DropdownButton<String>(
+              //       items: itemsND
+              //           .map<DropdownMenuItem<String>>((String value) {
+              //         return DropdownMenuItem<String>(
+              //           alignment: Alignment.center,
+              //           value: value,
+              //           child: Text(value),
+              //         );
+              //       }).toList(),
+              //       onChanged: (String? val) {
+              //         setState(() {
+              //           dropND = val!;
+              //         });
+              //       },
+              //       value: dropND,
+              //       style: const TextStyle(color: Colors.white70),
+              //       dropdownColor: Colors.black,
+              //     ),
+              //   ),
+              // ).marginOnly(
+              //     left: 30.w, right: 30.w, bottom: 30.h, top: 20.h)
+              //     : Container(),
+              // dropValueCity == "Gurugram"
+              //     ? Container(
+              //   height: 130.h,
+              //   width: Get.width - 100.w,
+              //   decoration:
+              //   BoxDecoration(border: Border.all(color: Colors.grey)),
+              //   child: Center(
+              //     child: DropdownButton<String>(
+              //       items: itemsGM
+              //           .map<DropdownMenuItem<String>>((String value) {
+              //         return DropdownMenuItem<String>(
+              //           alignment: Alignment.center,
+              //           value: value,
+              //           child: Text(value),
+              //         );
+              //       }).toList(),
+              //       onChanged: (String? val) {
+              //         setState(() {
+              //           dropGM = val!;
+              //         });
+              //       },
+              //       value: dropGM,
+              //       style: const TextStyle(color: Colors.white70),
+              //       dropdownColor: Colors.black,
+              //     ),
+              //   ),
+              // ).marginOnly(
+              //     left: 30.w, right: 30.w, bottom: 30.h, top: 20.h)
+              //     : Container(),
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.center,
               //   children: [

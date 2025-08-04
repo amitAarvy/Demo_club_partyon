@@ -14,7 +14,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:club/screens/event_management/menu_create.dart';
 import 'package:club/screens/purchase_plan/purchase_plan.dart';
 
@@ -55,7 +55,7 @@ class _ClubHomeState extends State<ClubHome> {
     setBusinessCatPref(),
     getFavCount(),
     // checkPendingRequest(),
-    fetchPlan(),
+    // fetchPlan(),
     // fetchOfferPromotionList(),
     ]);
     isLoading.value= false;
@@ -125,21 +125,7 @@ class _ClubHomeState extends State<ClubHome> {
   //       });
   // }
 
-  Future fetchPlan()async{
-    print('yes it is');
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    QuerySnapshot data = await   FirebaseFirestore.instance
-        .collection("BookingPlan").where('id', isEqualTo: uid()).where('status',isEqualTo: 'S').get();
-    print('check plan is ${data.docs}');
-    print('check plan is ${uid()}');
-    if(data.docs.isNotEmpty){
-      print('check plan is ${data.docs[0]['planDetail']}');
-      Map<String,dynamic> planData = data.docs[0]['planDetail'];
-      pref.setString('planData',jsonEncode(planData) );
-    }else{
-      pref.setString('planData',jsonEncode({}) );
-    }
-  }
+
 
   // List eventPromotionList = [];
 

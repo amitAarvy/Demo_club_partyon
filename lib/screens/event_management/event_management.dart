@@ -123,8 +123,6 @@ class _EventManagementState extends State<EventManagement> {
     });
   }
 
-
-
   void getDefaultTableData() async {
     try {
       await FirebaseFirestore.instance
@@ -203,28 +201,65 @@ class _EventManagementState extends State<EventManagement> {
   // }
 
 //get text field values from server in edit Event
+
   List entranceDefaultList = ['Couple','Female Stag','Male Stag'];
   Future<void> getEntranceFieldValues({
     isDefault = false,}) async {
     try {
       print('check is default value 1 ${isDefault}');
       if (isDefault) {
-        entranceTypesController.updateTypes(entranceDefaultList.length);
 
-        for (int i = 0; i < entranceDefaultList.length; i++) {
-          if (i >= entranceName.length) continue; // Avoid index error
-          entranceName[i].text = entranceDefaultList[i];
+      final data =  await FirebaseFirestore.instance
+            .collection('Club')
+            .doc(uid()) // Make sure this returns a valid UID string
+            .collection('DefaultEntry')
+            .doc('default')
+            .get();
 
-          for (int j = 0; j < 3; j++) {
-            if (j >= entryCategoryName[i].length ||
-                j >= entryCategoryCount[i].length ||
-                j >= entryCategoryPrice[i].length) continue;
+        if (data.exists && data.data() != null) {
+          final List<dynamic> entranceList = data.data()?['entranceList'] ?? [];
+          print('Entrance List: $entranceList');
+          entranceTypesController.updateTypes(entranceList.length);
 
-            entryCategoryName[i][j].text = '';
-            entryCategoryCount[i][j].text = '';
-            entryCategoryPrice[i][j].text = '';
+          for (int i = 0; i < entranceList.length; i++) {
+            if (i >= entranceName.length) continue;
+
+            // Set category name
+            entranceName[i].text = entranceList[i]['categoryName'].toString();
+
+            final List<dynamic> subCategoryList = entranceList[i]['subCategory'] ?? [];
+
+            for (int j = 0; j < subCategoryList.length; j++) {
+              if (j >= entryCategoryName[i].length ||
+                  j >= entryCategoryCount[i].length ||
+                  j >= entryCategoryPrice[i].length) continue;
+              final subCat = subCategoryList[j];
+              entryCategoryName[i][j].text = subCat['entryCategoryName'].toString();
+              entryCategoryCount[i][j].text = subCat['entryCategoryCount'].toString();
+              entryCategoryPrice[i][j].text = subCat['entryCategoryPrice'].toString();
+            }
           }
+
+        } else {
+
+          entranceTypesController.updateTypes(entranceDefaultList.length);
+          for (int i = 0; i < entranceDefaultList.length; i++) {
+            if (i >= entranceName.length) continue; // Avoid index error
+            entranceName[i].text = entranceDefaultList[i];
+
+            for (int j = 0; j < 3; j++) {
+              if (j >= entryCategoryName[i].length ||
+                  j >= entryCategoryCount[i].length ||
+                  j >= entryCategoryPrice[i].length) continue;
+
+              entryCategoryName[i][j].text = '';
+              entryCategoryCount[i][j].text = '';
+              entryCategoryPrice[i][j].text = '';
+            }
+          }
+          print('⚠️ No data found at DefaultEntry/default');
         }
+
         // setState(() {
         // });
         // entranceList = await fetchEntranceDataDefault(widget.eventId.toString(),
@@ -291,6 +326,7 @@ class _EventManagementState extends State<EventManagement> {
       checkEventCreate.value = true;
       // checkEventCreate.value = false;
     } else {
+
       Map<String, dynamic> jsonConvert = jsonDecode(planData);
       List PromoterListPlan = data.docs
           .where((e) {

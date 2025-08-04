@@ -292,6 +292,34 @@ if(widget.isVenue.toString() == 'venue'){
                   onTap: alreadyRequested
                       ? null
                       : () async {
+
+                    final userDetailSnapshot = await FirebaseFirestore.instance
+                        .collection('Organiser')
+                        .doc(uid())
+                        .get();
+
+                    final userData = userDetailSnapshot.data();
+
+                    if (userData == null || !userData.containsKey('accountNo') || !userData.containsKey('upi')) {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text('Kindly fill account detail in profile section.'),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('Ok'),
+                              )
+                            ],
+                          );
+                        },
+                      );
+                      return;
+                    }
+
                     await FirebaseFirestore.instance
                         .collection('RequestPayoutPromoter')
                         .add({
@@ -309,7 +337,7 @@ if(widget.isVenue.toString() == 'venue'){
                     }).catchError((e){
                       print('error is check $e');
                     }).whenComplete(() {
-                      Fluttertoast.showToast(msg: 'Requested Successful');
+                      Fluttertoast.showToast(msg: 'Payment will be processed within 3 to 7 working days');
                     },);
                   },
                   child: Container(

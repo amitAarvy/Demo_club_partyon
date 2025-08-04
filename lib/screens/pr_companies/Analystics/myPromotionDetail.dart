@@ -35,11 +35,19 @@ class _MyPromotionDetailState extends State<MyPromotionDetail> {
   double totalEntryCommission = 0.0;
   double totalTableCommissions = 0.0;
   double fillerAmount = 0.0;
+   String promoterName = '';
 
   fetchPromotionDetails()async{
     print('check it ${widget.prId}');
     isLoadingEvent.value =true;
     print('check event id ${widget.eventId}');
+    
+    if(widget.venuePr == 'true'){
+     final data= await FirebaseFirestore.instance.collection('Organiser').doc(widget.prId).get();
+     promoterName =data.data()==null?'':data.data()!['name'];
+    }
+    
+    
     try {
       var data = await FirebaseFirestore.instance
           .collection('PrAnalytics')
@@ -151,12 +159,19 @@ class _MyPromotionDetailState extends State<MyPromotionDetail> {
                 valueListenable: eventDetail,
                 builder: (context,event, child) {
                   var eventDetail = event as Map<String, dynamic>;
+
+                  print('check event detail is ${widget.eventData}');
+                  print('check event detail is ${eventDetail}');
+                  print('check event detail is ${widget.prId}');
                   return SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
                         children: [
                           SizedBox(height: 10,),
+
+
+
                           Text('${widget.venuePr == 'true'
                               ? eventDetail['title']
                               : widget.eventData['data']['title']}',
@@ -171,6 +186,14 @@ class _MyPromotionDetailState extends State<MyPromotionDetail> {
                                 crossAxisAlignment: CrossAxisAlignment
                                     .start,
                                 children: [
+
+                                  if(widget.venuePr == 'true')
+                                    Text('Promoter: $promoterName', style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                        fontSize: 20),),
+
+
                                   Text('Venue:', style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white,
